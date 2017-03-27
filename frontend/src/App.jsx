@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import SavedRestaurants from './SavedRestaurants.jsx'
+import SavedRestaurants from './SavedRestaurants.jsx';
+import Search from './Search.jsx'
 
-class App extends Component {
+export default class App extends Component {
   constructor(){
     super();
     this.state = {
@@ -23,14 +24,14 @@ class App extends Component {
   }
 
   render(){
-    
     return (
       <div>
-        <button onClick={() => this.getSavedRestaurants()}> Get dem Restaurants </button>
-        <SavedRestaurants restaurantsFromState = {this.state.savedRestaurants}/>
+        <Search/>
+        <button className="viewSaved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
+        <div className="savedRestaurantsContainer">
+          <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
+        </div>
       </div>
     )
   }
 }
-
-export default App;
