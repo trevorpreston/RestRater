@@ -1,0 +1,2 @@
+class SavedRestaurant < ApplicationRecord
+end
