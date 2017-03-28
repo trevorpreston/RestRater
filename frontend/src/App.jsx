@@ -7,7 +7,8 @@ export default class App extends Component {
   constructor(){
     super();
     this.state = {
-      savedRestaurants: []
+      savedRestaurants: [],
+      yelp
     }
     console.log(this.state);
   }
@@ -21,6 +22,13 @@ export default class App extends Component {
       console.log('state updated to: ' + this.state.savedRestaurants[0].title)
     })
     .catch(err => console.log('=======',err))
+  }
+
+  fetchYelpData(){
+    let header = new Headers({
+    })
+
+    fetch('https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972')
   }
 
   render(){
