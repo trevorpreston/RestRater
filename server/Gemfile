@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'pry'
 
+gem 'httparty'
+
 gem 'rack-cors', :require => 'rack/cors'
 
 # Use Redis adapter to run Action Cable in production
