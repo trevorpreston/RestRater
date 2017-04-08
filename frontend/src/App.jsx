@@ -8,7 +8,7 @@ export default class App extends Component {
     super();
     this.state = {
       savedRestaurants: [],
-      yelp
+      yelpSearchParam: undefined
     }
     console.log(this.state);
   }
@@ -24,17 +24,21 @@ export default class App extends Component {
     .catch(err => console.log('=======',err))
   }
 
-  fetchYelpData(){
-    let header = new Headers({
-    })
-
-    fetch('https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972')
+  fetchYelpData(event){
+    event.preventDefault()
+    let param = event.target.elements.param.value
+    console.log('PARAM IS ' + param)
+    fetch(`http://localhost:8080/yelp_api/${param}`)
+      .then( r => r.json())
+      .then( data => {
+        console.log(data.businesses)
+      })
   }
 
   render(){
     return (
       <div>
-        <Search/>
+        <Search searchYelp={this.fetchYelpData.bind(this)}/>
         <button className="viewSaved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
         <div className="savedRestaurantsContainer">
           <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
