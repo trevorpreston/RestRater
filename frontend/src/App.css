@@ -11,20 +11,44 @@ button {
   border: solid 5px #6496c8;
 }
 
-.savedRestaurantsContainer {
-  background-color: white;
-  width: 300px;
-  margin-left: 50px;
+.mega-container {
+  background-color: #777777;
+  height: 80vh;
 }
 
-.viewSaved {
+.parent-container {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  background-color: yellow;
+  margin: 0 auto;
+}
+
+.map {
+  background-color: green;
+  height: 100%;
+  width: 75%;
+}
+
+.results-container {
+  background-color: red;
+  justify-content: flex-end;
+  width: 25%
+}
+
+.saved-restaurants-container {
+  background-color: white;
+  width: 100%;
+}
+
+.view-saved {
   margin-top: 40px;
   margin-left: 50px;
 }
 
 .search-container {
   background-color: #6496c8;
-  padding: 20px;
+  padding: 25px;
 }
 
 .search-container > form {
@@ -55,4 +79,6 @@ button {
   color: #fafafa;
   background: rgba(0,0,0,0);
   border: solid 5px #FAFAFA;
+  font-size: 22px;
 }
+

@@ -11,7 +11,6 @@ export default class App extends Component {
       savedRestaurants: [],
       yelpSearchParam: undefined,
       yelpResults: undefined
-
     }
     console.log(this.state);
   }
@@ -53,11 +52,19 @@ export default class App extends Component {
     return (
       <div>
         <Search searchYelp={this.fetchYelpData.bind(this)}/>
-        <button className="viewSaved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
-        <div className="savedRestaurantsContainer">
-          <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
-        </div>
-        {this.renderSearchResults()}
+        <div className="mega-container">
+          <div className="parent-container">
+            <div className="map">
+            </div>
+            <div className="results-container">
+              <button className="view-saved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
+              <div className="saved-restaurants-container">
+                <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
+                {this.renderSearchResults()}
+              </div>
+            </div>
+          </div>
+        </div>  
       </div>
     )
   }
