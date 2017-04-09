@@ -39,6 +39,16 @@ export default class App extends Component {
       })
   }
 
+  renderSearchResults(){
+    if(this.state.yelpResults){
+      console.log('yelp results found.  Rendering SearchResults component')
+      return <SearchResults yelpResults={this.state.yelpResults}/>
+    } else {
+      console.log('no yelp results in state.  Rendering prompt to search')
+      return <p>Search for a restaurant! </p>
+    }
+  }
+
   render(){
     return (
       <div>
@@ -47,7 +57,7 @@ export default class App extends Component {
         <div className="savedRestaurantsContainer">
           <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
         </div>
-        <SearchResults yelpResults={this.state.yelpResults}/>
+        {this.renderSearchResults()}
       </div>
     )
   }
