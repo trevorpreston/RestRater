@@ -8,7 +8,9 @@ export default class App extends Component {
     super();
     this.state = {
       savedRestaurants: [],
-      yelpSearchParam: undefined
+      yelpSearchParam: undefined,
+      yelpResults: undefined
+
     }
     console.log(this.state);
   }
@@ -16,13 +18,13 @@ export default class App extends Component {
   getSavedRestaurants(){
     console.log('clicked');
     return fetch('http://localhost:8080/saved_restaurants')
-    .then(r => r.json())
-    .then(data => {
-      this.setState({savedRestaurants: data})
-      console.log('state updated to: ' + this.state.savedRestaurants[0].title)
-    })
-    .catch(err => console.log('=======',err))
-  }
+      .then(r => r.json())
+      .then(data => {
+        this.setState({savedRestaurants: data})
+        console.log('state updated to: ' + this.state.savedRestaurants[0].title)
+      })
+      .catch(err => console.log('=======',err))
+    }
 
   fetchYelpData(event){
     event.preventDefault()
@@ -31,7 +33,9 @@ export default class App extends Component {
     fetch(`http://localhost:8080/yelp_api/${param}`)
       .then( r => r.json())
       .then( data => {
-        console.log(data.businesses)
+        // console.log(data.businesses)
+        this.setState({yelpResults: data.businesses})
+        // console.log('yelp state: ' +this.state.yelpResults[0].name)
       })
   }
 
