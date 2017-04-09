@@ -47,7 +47,7 @@ export default class App extends Component {
         <div className="savedRestaurantsContainer">
           <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
         </div>
-        <SearchResults/>
+        <SearchResults yelpResults={this.state.yelpResults}/>
       </div>
     )
   }
