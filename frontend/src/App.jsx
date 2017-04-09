@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SavedRestaurants from './SavedRestaurants.jsx';
 import Search from './Search.jsx'
+import SearchResults from './SearchResults.jsx'
 
 export default class App extends Component {
   constructor(){
@@ -33,7 +34,6 @@ export default class App extends Component {
     fetch(`http://localhost:8080/yelp_api/${param}`)
       .then( r => r.json())
       .then( data => {
-        // console.log(data.businesses)
         this.setState({yelpResults: data.businesses})
         // console.log('yelp state: ' +this.state.yelpResults[0].name)
       })
@@ -47,6 +47,7 @@ export default class App extends Component {
         <div className="savedRestaurantsContainer">
           <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
         </div>
+        <SearchResults yelpResults={this.state.yelpResults}/>
       </div>
     )
   }
