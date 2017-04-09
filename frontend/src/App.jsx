@@ -3,6 +3,7 @@ import './App.css';
 import SavedRestaurants from './SavedRestaurants.jsx';
 import Search from './Search.jsx'
 import SearchResults from './SearchResults.jsx'
+import GMap from './GMap.jsx'
 
 export default class App extends Component {
   constructor(){
@@ -55,6 +56,7 @@ export default class App extends Component {
         <div className="mega-container">
           <div className="parent-container">
             <div className="map">
+              <GMap/>
             </div>
             <div className="results-container">
               <button className="view-saved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
