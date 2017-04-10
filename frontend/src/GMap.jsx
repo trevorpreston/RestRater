@@ -17,8 +17,8 @@ export default function SimpleMap (props) {
         googleMapElement={
           <GoogleMap
             ref={(map) => console.log(map)}
-            defaultZoom={3}
-            defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+            defaultZoom={12}
+            defaultCenter={{ lat: 40.762951, lng: -73.980833 }}
             onClick={props.onMapClick}
           >
             {/*props.markers.map((marker, index) => {
@@ -34,3 +34,4 @@ export default function SimpleMap (props) {
     </section>
   );
 }
+
