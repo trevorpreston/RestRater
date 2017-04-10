@@ -22,6 +22,7 @@ export default class SearchBar extends Component {
 	render(){
 		return(
 			<div>
+				<h1 className="results-header search-header"> search results: </h1>
 				<div>
 					{	this.props.yelpResults.map((result) => {
 							return <SearchResultListItem className="search-item" result={result}/>

@@ -16,6 +16,7 @@ export default class SavedRestaurants extends Component {
 		console.log('rendering savedrestaurants!')
 		return (
 			<div>
+				<h1 className="results-header saved-header"> saved restaurants: </h1>
 				{ this.renderRestaurants(this.props.restaurantsFromState) }
 			</div>
 		)
