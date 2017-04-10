@@ -10,6 +10,7 @@ export default class App extends Component {
     super();
     this.state = {
       savedRestaurants: [],
+      activeCategory: undefined,
       yelpSearchParam: undefined,
       yelpResults: undefined
     }
@@ -52,14 +53,13 @@ export default class App extends Component {
   render(){
     return (
       <div>
-        <Search searchYelp={this.fetchYelpData.bind(this)}/>
+        <Search searchYelp={this.fetchYelpData.bind(this)} getSavedRestaurants={this.getSavedRestaurants.bind(this)}/>
         <div className="mega-container">
           <div className="parent-container">
             <div className="map">
               <GMap/>
             </div>
             <div className="results-container">
-              <button className="view-saved" onClick={() => this.getSavedRestaurants()}> View Saved Restaurants </button>
               <div className="saved-restaurants-container">
                 <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
                 {this.renderSearchResults()}
