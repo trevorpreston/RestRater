@@ -80,31 +80,31 @@ button {
   width: 200px;
   margin-left: 10px;
   color: #fafafa;
-  background-color: #67D7C4;
+  background-color: #62C4FF;
   font-size: 25px;
   border: none;
   padding: 5px;
   vertical-align: bottom
 }
 
-.search-button:hover{
+/*.search-button:hover{
   background-color: #71edd8;
-}
+}*/
 
 .saved-button {
   width: 200px;
   margin-left: 10px;
   color: #fafafa;
-  background-color: #42B9A5;
+  background-color: #FF6E6E;
   font-size: 16px;
   border: none;
   padding: 5px;
   vertical-align: bottom
 }
-
+/*
 .saved-button:hover {
   background-color: #4bd1ba;
-}
+}*/
 
 .search-result-item {
   border: solid 1px #FAFAFA;

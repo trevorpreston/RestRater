@@ -22,7 +22,10 @@ export default class App extends Component {
     return fetch('http://localhost:8080/saved_restaurants')
       .then(r => r.json())
       .then(data => {
-        this.setState({savedRestaurants: data})
+        this.setState({
+          activeCategory: 'saved',
+          savedRestaurants: data
+        })
         console.log('state updated to: ' + this.state.savedRestaurants[0].title)
       })
       .catch(err => console.log('=======',err))
@@ -35,15 +38,20 @@ export default class App extends Component {
     fetch(`http://localhost:8080/yelp_api/${param}`)
       .then( r => r.json())
       .then( data => {
-        this.setState({yelpResults: data.businesses})
+        this.setState({
+          activeCategory: 'yelp',
+          yelpResults: data.businesses
+        })
         // console.log('yelp state: ' +this.state.yelpResults[0].name)
       })
   }
 
-  renderSearchResults(){
-    if(this.state.yelpResults){
+  renderResults(){
+    if(this.state.yelpResults && (this.state.activeCategory === 'yelp')) {
       console.log('yelp results found.  Rendering SearchResults component')
       return <SearchResults yelpResults={this.state.yelpResults}/>
+    } else if (this.state.activeCategory === 'saved') {
+      return <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
     } else {
       console.log('no yelp results in state.  Rendering prompt to search')
       return <p>Search for a restaurant! </p>
@@ -61,8 +69,7 @@ export default class App extends Component {
             </div>
             <div className="results-container">
               <div className="saved-restaurants-container">
-                <SavedRestaurants restaurantsFromState={this.state.savedRestaurants}/>
-                {this.renderSearchResults()}
+                {this.renderResults()}
               </div>
             </div>
           </div>
