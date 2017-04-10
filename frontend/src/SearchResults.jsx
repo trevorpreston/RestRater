@@ -23,8 +23,8 @@ export default class SearchBar extends Component {
 		return(
 			<div>
 				<div>
-					{this.props.yelpResults.map((result) => {
-						return <SearchResultListItem className="search-item" result={result}/>
+					{	this.props.yelpResults.map((result) => {
+							return <SearchResultListItem className="search-item" result={result}/>
 						})
 					}
 				</div>
