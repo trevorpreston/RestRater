@@ -106,11 +106,11 @@ button {
   background-color: #4bd1ba;
 }*/
 
-.search-result-item {
+.result-item {
   border: solid 1px #FAFAFA;
   padding: 10px 50px;
 }
 
-.search-result-item > p {
+.result-item > p {
   margin: 3px;
 }
