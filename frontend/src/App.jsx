@@ -14,7 +14,7 @@ export default class App extends Component {
       yelpSearchParam: undefined,
       yelpResults: undefined
     }
-    console.log(this.state);
+    console.log(this.state.yelpResults);
   }
 
   getSavedRestaurants(){
@@ -29,7 +29,7 @@ export default class App extends Component {
         })
         // console.log('state updated to: ' + this.state.savedRestaurants[0].id)
       })
-      .catch(err => console.log('=======',err))
+      .catch(err => console.log('=======', err))
     }
 
   fetchYelpData(event){
@@ -43,7 +43,7 @@ export default class App extends Component {
           activeCategory: 'yelp',
           yelpResults: data.businesses
         })
-        // console.log('yelp state: ' +this.state.yelpResults[0].name)
+        console.log('yelp state: ' +this.state.yelpResults[0].coordinates)
       })
   }
 
@@ -66,7 +66,7 @@ export default class App extends Component {
         <div className="mega-container">
           <div className="parent-container">
             <div className="map">
-              <GMap/>
+              <GMap locations={this.state.yelpResults}/>
             </div>
             <div className="results-container">
               <div className="saved-restaurants-container">
