@@ -22,11 +22,12 @@ export default class App extends Component {
     return fetch('http://localhost:8080/saved_restaurants')
       .then(r => r.json())
       .then(data => {
+        console.log('~~~~ '+data[0].id)
         this.setState({
           activeCategory: 'saved',
           savedRestaurants: data
         })
-        console.log('state updated to: ' + this.state.savedRestaurants[0].title)
+        // console.log('state updated to: ' + this.state.savedRestaurants[0].id)
       })
       .catch(err => console.log('=======',err))
     }
