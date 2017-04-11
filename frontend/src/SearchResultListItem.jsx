@@ -20,13 +20,9 @@ export default class SearchResultListItem extends Component {
 		fetch(`https://data.cityofnewyork.us/resource/9w7m-hzhe.json?dba=${this.props.result.name.toUpperCase()}&$where=grade IS NOT NULL`)
 			.then( r=> r.json())
 			.then( data => {
-				// let grade
-				// for(i=0 ; i<data.length; i++){
-				// 	if()
-					this.setState({
-						grade: data[data.length-1].grade
-					})
-				// }
+				this.setState({
+					grade: data[0].grade
+				})
 				console.log('COMPONENT GRADE ' + this.state.grade)
 			})
 			.catch(err => console.log(err))
@@ -37,7 +33,7 @@ export default class SearchResultListItem extends Component {
 			<div className="result-item">
 				<p> name: {this.props.result.name} </p>
 				<p> rating: {this.props.result.rating} </p>
-				<p> grade: {this.state.grade} </p>
+				<p> grade: {this.state.grade || 'grade not found'} </p>
 			</div>
 		)
 	}
